@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CineMatch</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header id="navbar">
+
+        <a class="brand" href="#home">
+            <i class="fa-solid fa-film"></i>
+            <b>Cine<span>Match</span></b>
+        </a>
+
+        <nav id="nav">
+            <a href="#home">Home</a>
+            <a href="#trending">Trending</a>
+            <a href="#popular">Popular</a>
+            <a href="#top-rated">Top Rated</a>
+            <a href="#upcoming">Upcoming</a>
+        </nav>
+
+        <div class="actions">
+
+            <form id="searchForm">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    id="search"
+                    placeholder="Search movies..."
+                    autocomplete="off"
+                >
+
+                <button id="clear" type="button">
+                    ×
+                </button>
+
+            </form>
+
+            <button class="icon">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+
+            <span class="avatar">
+                C
+            </span>
+
+            <button id="menu" class="icon">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+        <!-- =========================
+             HOME VIEW
+        ========================== -->
+
+        <section id="homeView">
+
+            <!-- HERO SECTION -->
+
+            <section class="hero">
+
+                <div id="heroBg"></div>
+
+                <div class="heroShade"></div>
+
+                <button
+                    id="heroPrev"
+                    class="heroArrow left"
+                >
+                    ‹
+                </button>
+
+                <button
+                    id="heroNext"
+                    class="heroArrow right"
+                >
+                    ›
+                </button>
+
+
+                <div class="heroContent">
+
+                    <div id="heroInfo">
+
+                        <span class="badge">
+                            🔥 TRENDING NOW
+                        </span>
+
+                        <h1 id="heroTitle">
+                            Loading...
+                        </h1>
+
+                        <div class="meta">
+
+                            <span class="rating">
+                                ★
+                                <b id="heroRating">
+                                    —
+                                </b>
+                            </span>
+
+                            <span id="heroYear">
+                                —
+                            </span>
+
+                            <span>
+                                Movie
+                            </span>
+
+                            <span class="pill">
+                                HD
+                            </span>
+
+                        </div>
+
+
+                        <p id="heroOverview"></p>
+
+
+                        <div class="buttons">
+
+                            <button
+                                id="heroTrailer"
+                                class="primary"
+                            >
+                                <i class="fa-solid fa-play"></i>
+                                Watch Trailer
+                            </button>
+
+                            <button
+                                id="heroDetails"
+                                class="secondary"
+                            >
+                                <i class="fa-solid fa-circle-info"></i>
+                                More Details
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="dots"
+                    class="dots"
+                ></div>
+
+            </section>
+
+
+            <!-- =========================
+                 MOVIE SECTIONS
+            ========================== -->
+
+            <div
+                class="wrap"
+                id="sections"
+            >
+
+                <!-- TRENDING -->
+
+                <section
+                    class="movieSection"
+                    id="trending"
+                >
+
+                    <div class="heading">
+
+                        <h2>
+                            🔥 Trending Now
+                        </h2>
+
+                        <div>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="trendingRow"
+                                data-dir="-1"
+                            >
+                                ‹
+                            </button>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="trendingRow"
+                                data-dir="1"
+                            >
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="trendingRow"
+                        class="row"
+                    ></div>
+
+                </section>
+
+
+                <!-- POPULAR -->
+
+                <section
+                    class="movieSection"
+                    id="popular"
+                >
+
+                    <div class="heading">
+
+                        <h2>
+                            ⭐ Popular Movies
+                        </h2>
+
+                        <div>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="popularRow"
+                                data-dir="-1"
+                            >
+                                ‹
+                            </button>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="popularRow"
+                                data-dir="1"
+                            >
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="popularRow"
+                        class="row"
+                    ></div>
+
+                </section>
+
+
+                <!-- TOP RATED -->
+
+                <section
+                    class="movieSection"
+                    id="top-rated"
+                >
+
+                    <div class="heading">
+
+                        <h2>
+                            🏆 Top Rated
+                        </h2>
+
+                        <div>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="topRatedRow"
+                                data-dir="-1"
+                            >
+                                ‹
+                            </button>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="topRatedRow"
+                                data-dir="1"
+                            >
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="topRatedRow"
+                        class="row"
+                    ></div>
+
+                </section>
+
+
+                <!-- NOW PLAYING -->
+
+                <section
+                    class="movieSection"
+                    id="now-playing"
+                >
+
+                    <div class="heading">
+
+                        <h2>
+                            🎬 Now Playing
+                        </h2>
+
+                        <div>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="nowPlayingRow"
+                                data-dir="-1"
+                            >
+                                ‹
+                            </button>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="nowPlayingRow"
+                                data-dir="1"
+                            >
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="nowPlayingRow"
+                        class="row"
+                    ></div>
+
+                </section>
+
+
+                <!-- UPCOMING -->
+
+                <section
+                    class="movieSection"
+                    id="upcoming"
+                >
+
+                    <div class="heading">
+
+                        <h2>
+                            📅 Upcoming
+                        </h2>
+
+                        <div>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="upcomingRow"
+                                data-dir="-1"
+                            >
+                                ‹
+                            </button>
+
+                            <button
+                                class="scrollBtn"
+                                data-row="upcomingRow"
+                                data-dir="1"
+                            >
+                                ›
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="upcomingRow"
+                        class="row"
+                    ></div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SEARCH VIEW
+        ========================== -->
+
+        <section
+            id="searchView"
+            class="hidden page"
+        >
+
+            <button
+                id="searchBack"
+                class="back"
+            >
+                ← Back
+            </button>
+
+            <h1 id="searchTitle">
+                Search Results
+            </h1>
+
+            <div
+                id="results"
+                class="grid"
+            ></div>
+
+        </section>
+
+
+        <!-- =========================
+             DETAILS VIEW
+        ========================== -->
+
+        <section
+            id="detailsView"
+            class="hidden"
+        >
+
+            <div class="detailsHero">
+
+                <div id="detailBg"></div>
+
+                <div class="detailShade"></div>
+
+
+                <div class="detailInner">
+
+                    <button
+                        id="detailBack"
+                        class="back light"
+                    >
+                        ← Back
+                    </button>
+
+
+                    <div class="detailLayout">
+
+                        <img
+                            id="detailPoster"
+                            class="detailPoster"
+                        >
+
+
+                        <div>
+
+                            <span class="badge">
+                                🎬 MOVIE DETAILS
+                            </span>
+
+
+                            <h1 id="detailTitle"></h1>
+
+
+                            <div class="meta">
+
+                                <span class="rating">
+                                    ★
+                                    <b id="detailRating">
+                                        —
+                                    </b>
+                                </span>
+
+                                <span id="detailYear">
+                                    —
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                id="genres"
+                                class="genres"
+                            ></div>
+
+
+                            <p id="detailOverview"></p>
+
+
+                            <button
+                                id="detailTrailer"
+                                class="primary"
+                            >
+                                <i class="fa-solid fa-play"></i>
+                                Watch Trailer
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 TF-IDF RECOMMENDATIONS
+            ========================== -->
+
+            <div class="wrap">
+
+                <section class="movieSection">
+
+                    <div class="heading">
+
+                        <div>
+
+                            <h2>
+                                🤖 AI Recommendations
+                            </h2>
+
+                            <small>
+                                Content-based TF-IDF similarity
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="tfidf"
+                        class="row"
+                    ></div>
+
+                </section>
+
+
+                <!-- =========================
+                     GENRE RECOMMENDATIONS
+                ========================== -->
+
+                <section class="movieSection">
+
+                    <div class="heading">
+
+                        <div>
+
+                            <h2>
+                                🎭 More Like This
+                            </h2>
+
+                            <small>
+                                Popular movies from a similar genre
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="genre"
+                        class="row"
+                    ></div>
+
+                </section>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div>
+
+            <b class="footerBrand">
+                🎬 Cine<span>Match</span>
+            </b>
+
+            <p>
+                Discover your next favorite movie.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <span
+                id="statusDot"
+                class="dot off"
+            ></span>
+
+            <span id="status">
+                Checking API...
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         TOAST
+    ========================== -->
+
+    <div id="toast"></div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
